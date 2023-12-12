@@ -1,2 +1,2 @@
 #!/bin/bash
-paste -d" " - - < $1 | cut -d " " -f1
+ls | grep -n . | grep [13579]: | cut -d ":" -f 2-
