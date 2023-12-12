@@ -1,17 +1,2 @@
 #!/bin/bash
-
-# 1st Convert WATER from base water to base 10
-water=$(echo \"ibase=water; $WATER\" | bc)
-
-# 2nd Convert STIR from base stir to base 10
-stir=$(echo \"ibase=stir; $STIR\" | bc)
-
-# 3rd Add the two numbers in base 10
-result=$((water + stir))
-
-# 4th Convert the result to base bestchol
-result_bestchol=$(echo \"obase=bestchol; $result\" | bc)
-
-# Output result
-echo $result_bestchol
-
+printf "%o\n" $(($((5#$(echo $WATER | tr water 01234)))+$((5#$(echo $STIR | tr stir. 01234))))) | tr 01234567 bestschool
